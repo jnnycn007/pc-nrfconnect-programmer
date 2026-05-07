@@ -11,7 +11,7 @@ const DocumentationSections = [
     <DocumentationSection
         key="infocenter"
         linkLabel="Open documentation"
-        link="https://docs.nordicsemi.com/bundle/nrf-connect-programmer/page/index.html"
+        link="https://docs.nordicsemi.com/bundle/swtools_docs/page/app/pc-nrfconnect-programmer/index.html"
     >
         Visit TechDocs for official documentation of the app.
     </DocumentationSection>,
