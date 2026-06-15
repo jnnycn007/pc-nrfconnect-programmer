@@ -35,12 +35,14 @@ import {
 } from '../reducers/deviceDefinitionReducer';
 import {
     getFileRegions,
+    getLoaded,
     getMruFiles,
     getZipFilePath,
 } from '../reducers/fileReducer';
 import { getAutoRead, getAutoReset } from '../reducers/settingsReducer';
 import { getIsWritable } from '../reducers/targetReducer';
 import { convertDeviceDefinitionToCoreArray } from '../util/devices';
+import { DeviceFamily } from '../util/deviceTypes';
 
 const useRegisterDragEvents = () => {
     const dispatch = useDispatch();
@@ -175,6 +177,7 @@ const ControlPanel = () => {
     const targetIsWritable = useSelector(getIsWritable);
     const deviceDefinition = useSelector(getDeviceDefinition);
     const zipFile = useSelector(getZipFilePath);
+    const hexFile = useSelector(getLoaded);
     const targetIsReady = !useSelector(getDeviceIsBusy) && !!device;
     const coreInfos = convertDeviceDefinitionToCoreArray(deviceDefinition);
     const canRead = !!coreInfos.find(
@@ -187,9 +190,22 @@ const ControlPanel = () => {
     const isMcuboot = !!device?.traits.mcuBoot;
     const isModem = !!device?.traits.modem;
 
+    const disableLayoutActions =
+        deviceDefinition.family === DeviceFamily.NRF54H ||
+        deviceDefinition.family === DeviceFamily.NRF92;
+
+    const hasHexFile = Object.keys(hexFile).length > 0;
+
     const targetIsRecoverable = isJLink;
 
     const refreshAllFiles = () => dispatch(fileActions.refreshAllFiles());
+
+    useEffect(() => {
+        if (!disableLayoutActions) return;
+        if (!autoRead) return;
+
+        dispatch(settingsActions.toggleAutoRead());
+    }, [disableLayoutActions, autoRead, dispatch]);
 
     return (
         <SidePanel className="control-panel">
@@ -276,7 +292,8 @@ Are you sure you want to continue?`,
                         isMcuboot ||
                         !isJLink ||
                         !targetIsReady ||
-                        !fileRegionSize ||
+                        (!fileRegionSize &&
+                            !(disableLayoutActions && hasHexFile)) ||
                         !(targetIsRecoverable && mruFiles.length)
                     }
                 >
@@ -294,7 +311,12 @@ Are you sure you want to continue?`,
                         }
                         dispatch(jlinkTargetActions.saveAsFile());
                     }}
-                    disabled={!isJLink || !isMemLoaded || !targetIsReady}
+                    disabled={
+                        !isJLink ||
+                        !isMemLoaded ||
+                        !targetIsReady ||
+                        disableLayoutActions
+                    }
                 >
                     <span className="mdi mdi-floppy" />
                     Save as file
@@ -382,8 +404,17 @@ Are you sure you want to continue?`,
                         }
                         dispatch(setDeviceBusy(false));
                     }}
+                    title={
+                        disableLayoutActions
+                            ? 'Reading memory for devices from this product series is not supported.'
+                            : undefined
+                    }
                     disabled={
-                        isMcuboot || !isJLink || !targetIsReady || !canRead
+                        isMcuboot ||
+                        !isJLink ||
+                        !targetIsReady ||
+                        !canRead ||
+                        disableLayoutActions
                     }
                 >
                     <span className="mdi mdi-refresh" />
@@ -397,6 +428,12 @@ Are you sure you want to continue?`,
                     label="Auto read memory"
                     barColor={colors.gray700}
                     handleColor={colors.gray300}
+                    disabled={disableLayoutActions}
+                    title={
+                        disableLayoutActions
+                            ? 'Reading memory for this product series is not supported.'
+                            : undefined
+                    }
                 />
                 <Toggle
                     isToggled={autoReset}

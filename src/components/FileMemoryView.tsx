@@ -28,9 +28,11 @@ import {
 import {
     type CoreDefinition,
     type DeviceDefinition,
+    DeviceFamily,
 } from '../util/deviceTypes';
 import { generateFileRegions, type Region } from '../util/regions';
 import CoreView from './CoreView';
+import { color } from './RegionView';
 
 const allocateCores = (cores: CoreInfo[], regions: Region[]) =>
     cores.map(core => ({
@@ -74,6 +76,10 @@ export default () => {
     const deviceDefinition = useSelector(getDeviceDefinition);
     const coreDefinitions = useSelector(getCoreDefinitions);
     const zipFilePath = useSelector(getZipFilePath);
+
+    const shouldDisableLayout =
+        deviceDefinition.family === DeviceFamily.NRF54H ||
+        deviceDefinition.family === DeviceFamily.NRF92;
 
     useEffect(() => {
         dispatch(updateTargetWritable());
@@ -125,6 +131,27 @@ export default () => {
 
         dispatch(fileRegionsKnown(validFileRegions));
     }, [coreDefinitions, dispatch, memMaps]);
+
+    if (shouldDisableLayout) {
+        return (
+            <div className="core-container">
+                <div
+                    className="centering-container"
+                    style={{
+                        backgroundColor: color(),
+                    }}
+                >
+                    <div className="read-indicator">
+                        <p>HEX file selected and available for programming</p>
+                        <p>
+                            Memory layout is not available for this product
+                            series
+                        </p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <>

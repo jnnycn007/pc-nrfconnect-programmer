@@ -44,6 +44,7 @@ import {
 import {
     type CoreDefinition,
     type DeviceDefinition,
+    DeviceFamily,
 } from '../util/deviceTypes';
 
 let abortController: AbortController | undefined;
@@ -74,19 +75,23 @@ export const openDevice =
             abortController,
         );
 
-        await dispatch(getAllCoreInfoBatch(true)).run(device);
+        await dispatch(getAllCoreInfoBatch(true, device)).run(device);
 
         const batch = NrfutilDeviceLib.batch();
 
+        const disableAutoRead =
+            defaultDeviceInfo.family === DeviceFamily.NRF54H ||
+            defaultDeviceInfo.family === DeviceFamily.NRF92;
+
         const autoRead = getState().app.settings.autoRead;
-        if (autoRead) {
+        if (autoRead && !disableAutoRead) {
             dispatch(readAllCoresBatch(true, batch));
         }
 
         const autoReset = getState().app.settings.autoReset;
         if (autoReset) {
             await batch
-                .reset('Application', 'RESET_DEBUG')
+                .reset('Application', 'RESET_DEFAULT')
                 .run(device, abortController);
             await dispatch(
                 getAllCoreProtectionStatusBatch(deviceCoreNames),
@@ -291,24 +296,29 @@ const writeOneCoreBatch =
 const geCoreHexIntel = (
     coreInfo: CoreDefinition,
     memMaps: MemoryMaps<string>,
+    deleteOutOfBoundsRegions = true,
 ) => {
     // Parse input files and filter program regions with core start address and size
     const overlaps = MemoryMap.overlapMemoryMaps(memMaps);
-    overlaps.forEach((overlap, key) => {
-        const overlapStartAddr = key;
-        const overlapSize = overlap[0][1].length;
-        const overlapEndAddr = overlapStartAddr + overlapSize;
 
-        const isInCore =
-            overlapStartAddr >= coreInfo.romBaseAddr &&
-            overlapEndAddr <= coreInfo.romBaseAddr + coreInfo.romSize;
-        const isUicr =
-            overlapStartAddr >= coreInfo.uicrBaseAddr &&
-            overlapEndAddr <= coreInfo.uicrBaseAddr + coreInfo.uicrSize;
-        if (!isInCore && !isUicr) {
-            overlaps.delete(key);
-        }
-    });
+    if (deleteOutOfBoundsRegions) {
+        overlaps.forEach((overlap, key) => {
+            const overlapStartAddr = key;
+            const overlapSize = overlap[0][1].length;
+            const overlapEndAddr = overlapStartAddr + overlapSize;
+
+            const isInCore =
+                overlapStartAddr >= coreInfo.romBaseAddr &&
+                overlapEndAddr <= coreInfo.romBaseAddr + coreInfo.romSize;
+            const isUicr =
+                overlapStartAddr >= coreInfo.uicrBaseAddr &&
+                overlapEndAddr <= coreInfo.uicrBaseAddr + coreInfo.uicrSize;
+
+            if (!isInCore && !isUicr) {
+                overlaps.delete(key);
+            }
+        });
+    }
 
     if (overlaps.size <= 0) {
         return undefined;
@@ -340,6 +350,8 @@ const writeToAllCoresBatch =
                 const hex = geCoreHexIntel(
                     deviceCoreInfo.coreDefinitions,
                     memMaps,
+                    // todo: revisit this as it was temporary solution
+                    deviceDefinition.family !== DeviceFamily.NRF92,
                 );
                 if (!hex) return accBatch;
 
@@ -398,6 +410,7 @@ export const recover =
         await dispatch(
             getAllCoreInfoBatch(
                 false, // No need to check protection as we recovered
+                device,
                 batch,
             ),
         ).run(device);
@@ -411,7 +424,7 @@ export const recover =
 
         const autoReset = getState().app.settings.autoReset;
         if (autoReset) {
-            batch.reset('Application', 'RESET_DEBUG');
+            batch.reset('Application', 'RESET_DEFAULT');
         }
 
         await batch.run(device, abortController);
@@ -435,6 +448,7 @@ export const recoverAndWrite =
         await dispatch(
             getAllCoreInfoBatch(
                 false, // No need to check protection as we recovered
+                device,
                 batch,
             ),
         ).run(device);
@@ -450,7 +464,7 @@ export const recoverAndWrite =
 
         const autoReset = getState().app.settings.autoReset;
         if (autoReset) {
-            batch.reset('Application', 'RESET_DEBUG');
+            batch.reset('Application', 'RESET_DEFAULT');
         }
 
         await batch.run(device, abortController);
@@ -471,7 +485,7 @@ export const resetDevice =
         await NrfutilDeviceLib.reset(
             device,
             'Application',
-            'RESET_DEBUG',
+            'RESET_DEFAULT',
             undefined,
             abortController,
         );
@@ -609,6 +623,7 @@ const getCoreInfoBatch =
 const getAllCoreInfoBatch =
     (
         checkProtection: boolean,
+        device: Device,
         batch = NrfutilDeviceLib.batch(),
     ): AppThunk<RootState, DeviceBatch> =>
     (dispatch, getState) => {
@@ -622,6 +637,16 @@ const getAllCoreInfoBatch =
             ) {
                 logger.info(
                     `Skipping reading core ${coreInfo.name} information as it is protected.`,
+                );
+                return accBatch;
+            }
+
+            if (
+                device.devkit?.deviceFamily === DeviceFamily.NRF54H ||
+                device.devkit?.deviceFamily === DeviceFamily.NRF92
+            ) {
+                logger.info(
+                    `Skipping reading information for the ${coreInfo.name} core - operation is not supported for devices from the ${device.devkit?.deviceFamily} Series.`,
                 );
                 return accBatch;
             }
