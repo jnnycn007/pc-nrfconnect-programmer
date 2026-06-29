@@ -1,9 +1,10 @@
-## Unreleased
+## 4.8.0 - Unreleased
 
 ### Added
 
 - Write support for MCUboot devices, such as Nordic Thingy:91 X or the nRF54LM20
   Dongle.
+- Logging of removed files.
 
 ### Changed
 
