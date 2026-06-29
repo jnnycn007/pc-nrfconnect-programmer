@@ -90,6 +90,9 @@ const McuUpdateDialogView = () => {
         resolution: 200,
     });
 
+    const mustHaveChipTarget = programmingOptions.length > 1 && !zipFilePath;
+    const hasChipTarget = mustHaveChipTarget && !chosenTarget;
+
     useEffect(() => {
         // note: check may be redundant as Thingy:91 has a different modal
         const isThingy53 =
@@ -151,9 +154,6 @@ const McuUpdateDialogView = () => {
             return;
         }
 
-        // these consts must be outside of this func for reuse
-        const mustHaveChipTarget = programmingOptions.length > 1 && !zipFilePath;
-        const hasChipTarget = mustHaveChipTarget && !chosenTarget;
         if (hasChipTarget) {
             logger.error('No target selected');
             return;
@@ -284,7 +284,7 @@ Are you sure you want to continue?`,
                     <span>{` ${mcubootFwPath || zipFilePath}`}</span>
                 </div>
 
-                mustHaveChipTarget && (
+                {mustHaveChipTarget && (
                     <div className="tw-flex tw-flex-col tw-gap-2">
                         <strong>Target:</strong>
                         <Dropdown
