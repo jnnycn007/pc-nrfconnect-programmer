@@ -183,7 +183,7 @@ Are you sure you want to continue?`,
     return (
         <GenericDialog
             title={`${isApplication ? 'Application Update' : 'Modem DFU'}${
-                isMcuboot ? ' via MCUboot' : ''
+                isMcuboot ? ' using MCUboot' : ''
             }`}
             showSpinner={writing}
             onHide={onCancel}

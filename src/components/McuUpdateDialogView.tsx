@@ -384,14 +384,14 @@ Are you sure you want to continue?`,
                         <Alert variant="warning">
                             <div className="tw-flex tw-flex-col tw-gap-0">
                                 <span>
-                                    You are now programming via MCUboot.
+                                    You are now programming using MCUboot.
                                 </span>
                                 <span>
                                     The device will be recovered if you proceed
                                     to write.
                                 </span>
                                 <span>
-                                    Make sure the device is in{' '}
+                                    Make sure the device is in the{' '}
                                     <strong>MCUboot mode</strong>.
                                 </span>
                             </div>

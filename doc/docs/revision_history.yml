@@ -2,6 +2,10 @@ tool:
 - name: Programmer app
   link: true
 sections:
+- name: July 2026
+  entries:
+  - "Updated the [Programming Nordic Thingy prototyping platforms](programming_thingy.md) page with information about programming Nordic Thingy:91 X using MCUboot."
+  - "Updated the entries in the [supported hardware section](index.md#supported-hardware): Nordic Thingy:91 X is now supported for programming using MCUboot; added the nRF54LS05 DK and the nRF54LM20 Dongle to the list."
 - name: January 2026
   entries:
   - "Renamed the Home page to [Get started](./index.md)."
