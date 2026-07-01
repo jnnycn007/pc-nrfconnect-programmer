@@ -34,7 +34,7 @@ To program a supported development kit, complete the following procedure:
 4. If you have not selected the **Auto read memory** option under the **Device** menu and wish to visually see the memory layout before you program, click **Read** in the menu. If you have selected it, the memory layout will update automatically.
 
     !!! note "Note"
-         **Read** is not available for the nRF54LM20 Dongle.
+         **Read** is not available for hardware programmed with MCUboot.
 
 5. Drag and drop the HEX file into the **File Memory Layout** section. Alternatively, click **Add file** to add the files you want to program, using one of the following options:
 
