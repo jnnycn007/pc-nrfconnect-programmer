@@ -31,7 +31,7 @@ The following table lists the hardware platforms that you can program with the P
 | nPM1304 EK          | nPM1304  | PCA10195   | Yes                      | No                                  | Yes                      |
 | nPM1300 EK          | nPM1300  | PCA10152   | Yes                      | No                                  | Yes                      |
 | nRF52840 DK         | nRF52840 | PCA10056   | Yes                      | Possible                            | No                       |
-| nRF52840 Dongle     | nRF52840 | PCA10059   | No                       | Yes                                 | No                       |
+| nRF52840 Dongle     | nRF52840 | PCA10059   | Yes (no on-board J-Link debugger) | Yes                        | No                       |
 | nRF52833 DK         | nRF52833 | PCA10100   | Yes                      | Possible                            | No                       |
 | nRF52832 DK (nRF52) | nRF52832 | PCA10040   | Yes                      | Possible                            | No                       |
 

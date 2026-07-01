@@ -79,20 +79,18 @@ To program Nordic Thingy using the USB connection, complete the following steps:
 1. Select the file to program.
 1. Click **Open**.
 1. In the [**Device** section](overview.md#device), click **Write**.<br/>
-   The **MCUboot DFU** window appears.
+   Depending on the file you chose, a programming confirmation window can appear.
+   For example, if you chose a HEX file, the **MCUboot DFU** window appears.
 
     ![Programmer - MCUboot DFU](./screenshots/thingy91x_mcuboot_dfu.png "Programmer - MCUboot DFU")
 
-1. In the **MCUboot DFU** window:
+1. If you are prompted to do so, select the target to program:
 
-    1. Select the target to program:
+    * The **nRF91** target programs the nRF9151 SiP.
+    * The **nRF53** target programs the nRF5340 SoC.
 
-        * The **nRF91** target programs the nRF9151 SiP.
-        * The **nRF53** target programs the nRF5340 SoC.
-
-    1. Click **Write**.<br/>
-
-    When the update is complete, a "Completed successfully" message appears.
+1. Click **Write**.<br/>
+   When the update is complete, a "Completed successfully" message appears.
 
 1. In the [**File** section](overview.md#file), click **Clear files**.
 
