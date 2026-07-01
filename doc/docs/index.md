@@ -19,7 +19,6 @@ The following table lists the hardware platforms that you can program with the P
 | nRF9151 DK          | nRF9151  | PCA10171   | Yes                      | No                                  | No                       |
 | nRF9151 SMA DK      | nRF9151  | PCA10201   | Yes                      | No                                  | No                       |
 | nRF9131 DK          | nRF9131  | PCA10147   | Yes                      | No                                  | No                       |
-| nRF54H20 DK         | nRF54H20 | PCA10175   | *Not yet available*      | No                                  | No                       |
 | nRF54LV10 DK        | nRF54LV10| PCA10188   | Yes                      | No                                  | No                       |
 | nRF54LS05 DK        | nRF54LS05| PCA10214   | Yes                      | No                                  | No                       |
 | nRF54LM20 DK        | nRF54LM20| PCA10184   | Yes                      | No                                  | No                       |
