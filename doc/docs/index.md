@@ -13,22 +13,25 @@ The following table lists the hardware platforms that you can program with the P
 | Hardware platform   | Device   | PCA number | Programming with J-Link  | Programming with Nordic Secure DFU  | Programming with MCUboot |
 |---------------------|----------|------------|--------------------------|-------------------------------------|--------------------------|
 | nRF9161 DK          | nRF9161  | PCA10153   | Yes                      | No                                  | No                       |
-| Nordic Thingy:91 X  | nRF9151  | PCA20065   | *Not yet available*      | No                                  | *Not yet available*      |
+| Nordic Thingy:91 X  | nRF9151  | PCA20065   | Yes (no on-board J-Link debugger) | No                         | Yes                      |
 | nRF9160 DK          | nRF9160  | PCA10090   | Yes                      | No                                  | No                       |
-| Nordic Thingy:91    | nRF9160  | PCA20035   | Yes                      | No                                  | Yes                      |
+| Nordic Thingy:91    | nRF9160  | PCA20035   | Yes (no on-board J-Link debugger) | No                         | Yes                      |
 | nRF9151 DK          | nRF9151  | PCA10171   | Yes                      | No                                  | No                       |
 | nRF9151 SMA DK      | nRF9151  | PCA10201   | Yes                      | No                                  | No                       |
 | nRF9131 DK          | nRF9131  | PCA10147   | Yes                      | No                                  | No                       |
-| nRF54H20 DK         | nRF54H20 | PCA10175   | *Not yet available*      | No                                  | No                       |
 | nRF54LV10 DK        | nRF54LV10| PCA10188   | Yes                      | No                                  | No                       |
+| nRF54LS05 DK        | nRF54LS05| PCA10214   | Yes                      | No                                  | No                       |
 | nRF54LM20 DK        | nRF54LM20| PCA10184   | Yes                      | No                                  | No                       |
+| nRF54LM20 Dongle    | nRF54LM20| PCA10208   | No                       | No                                  | Yes                      |
 | nRF54L15 DK         | nRF54L15 | PCA10156   | Yes                      | No                                  | No                       |
 | nRF5340 DK          | nRF5340  | PCA10095   | Yes                      | No                                  | No                       |
 | nRF5340 Audio DK    | nRF5340  | PCA10121   | Yes                      | No                                  | No                       |
-| Nordic Thingy:53    | nRF5340  | PCA20053   | Yes                      | No                                  | Yes                      |
+| Nordic Thingy:53    | nRF5340  | PCA20053   | Yes (no on-board J-Link debugger) | No                         | Yes                      |
+| nPM2100 EK          | nPM2100  | PCA10170   | Yes                      | No                                  | Yes                      |
+| nPM1304 EK          | nPM1304  | PCA10195   | Yes                      | No                                  | Yes                      |
 | nPM1300 EK          | nPM1300  | PCA10152   | Yes                      | No                                  | Yes                      |
 | nRF52840 DK         | nRF52840 | PCA10056   | Yes                      | Possible                            | No                       |
-| nRF52840 Dongle     | nRF52840 | PCA10059   | No                       | Yes                                 | No                       |
+| nRF52840 Dongle     | nRF52840 | PCA10059   | Yes (no on-board J-Link debugger) | Yes                        | No                       |
 | nRF52833 DK         | nRF52833 | PCA10100   | Yes                      | Possible                            | No                       |
 | nRF52832 DK (nRF52) | nRF52832 | PCA10040   | Yes                      | Possible                            | No                       |
 

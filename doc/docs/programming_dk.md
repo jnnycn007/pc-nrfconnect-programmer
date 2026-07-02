@@ -32,6 +32,10 @@ To program a supported development kit, complete the following procedure:
 3. Click **Select device** and choose the device from the drop-down list.</br>
    The button text changes to the name and serial number of the selected device, and the **Device Memory Layout** section indicates that the device is connected.
 4. If you have not selected the **Auto read memory** option under the **Device** menu and wish to visually see the memory layout before you program, click **Read** in the menu. If you have selected it, the memory layout will update automatically.
+
+    !!! note "Note"
+         **Read** is not available for hardware that is using MCUboot.
+
 5. Drag and drop the HEX file into the **File Memory Layout** section. Alternatively, click **Add file** to add the files you want to program, using one of the following options:
 
     - Select the files you used recently.
