@@ -45,6 +45,8 @@ const TOOLTIP_TEXT =
 
 const NET_CORE_UPLOAD_DELAY = 120;
 
+const NO_TARGET_SELECTED: DropdownItem = { label: '', value: '' };
+
 const McuUpdateDialogView = () => {
     const abortController = useRef(new AbortController());
     const [progress, setProgress] =
@@ -108,6 +110,7 @@ const McuUpdateDialogView = () => {
             setWritingSucceed(false);
             setWritingFail(false);
             setWritingFailError(undefined);
+            setChosenTarget('');
         } else {
             abortController.current.abort();
         }
@@ -126,12 +129,6 @@ const McuUpdateDialogView = () => {
             setKeepDefaultTimeout(false);
         }
     }, [device, showDelayTimeout]);
-
-    useEffect(() => {
-        if (targetDropdownItems.length > 0 && !chosenTarget) {
-            setChosenTarget(targetDropdownItems[0].value);
-        }
-    }, [chosenTarget, targetDropdownItems]);
 
     const onCancel = () => {
         dispatch(clearWaitForDevice());
@@ -205,7 +202,7 @@ Are you sure you want to continue?`,
             showDelayTimeout || (mustHaveChipTarget && hasChipTarget)
                 ? {
                       netCoreUploadDelay: uploadDelay,
-                      target: mcubootFwPath ? chosenTarget : undefined,
+                      target: chosenTarget || undefined,
                   }
                 : undefined,
         )
@@ -289,12 +286,14 @@ Are you sure you want to continue?`,
                         <strong>Target:</strong>
                         <Dropdown
                             items={targetDropdownItems}
+                            defaultButtonLabel="Select target"
                             onSelect={(item: DropdownItem) => {
                                 setChosenTarget(item.value);
                             }}
                             selectedItem={getSelectedDropdownItem(
                                 targetDropdownItems,
                                 chosenTarget,
+                                NO_TARGET_SELECTED,
                             )}
                             disabled={writingHasStarted}
                         />
