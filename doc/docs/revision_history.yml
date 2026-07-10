@@ -4,6 +4,8 @@ tool:
 sections:
 - name: July 2026
   entries:
+  - "Updated the [Programming Nordic Thingy prototyping platforms](programming_thingy.md) by removing the information about specific firmware files for programming; these files and their usage are described in the `CONTENTS.txt` file in each of the firmware ZIP archives."
+  - "Updated the [General programming procedure](programming_dk.md) page with additional images."
   - "Updated the [Programming Nordic Thingy prototyping platforms](programming_thingy.md) page with information about programming Nordic Thingy:91 X using MCUboot."
   - "Updated the entries in the [supported hardware section](index.md#supported-hardware): Nordic Thingy:91 X is now supported for programming using MCUboot; added the nRF54LS05 DK, the nRF54LM20 Dongle, the nPM2100 EK, and the nPM1304 EK to the list; removed the nRF54H20 DK from the list."
   - "Added a note to the [General programming procedure](programming_dk.md) page about the limitation of the **Read** feature for the nRF54LM20 Dongle."
