@@ -4,44 +4,11 @@ You can program the Nordic Thingy application and network core firmware over USB
 
 You can follow this procedure to update the preloaded firmware on the Nordic Thingy prototyping platforms using the precompiled application firmware available from the [Nordic Semiconductor website](https://www.nordicsemi.com/) for the platform of your choice:
 
-=== "Nordic Thingy:91 X"
+* [Nordic Thingy:91 X Downloads](https://www.nordicsemi.com/Products/Development-hardware/Nordic-Thingy-91-X/Download?lang=en#infotabs)
+* [Nordic Thingy:91 Downloads](https://www.nordicsemi.com/Products/Development-hardware/ordic-Thingy-91/Download#infotabs)
+* [Nordic Thingy:53 Downloads](https://www.nordicsemi.com/Products/Development-hardware/ordic-Thingy-53/Downloads?lang=en#infotabs)
 
-    Download the precompiled application firmware from [Nordic Thingy:91 X Downloads](https://www.nordicsemi.com/Products/Development-hardware/Nordic-Thingy-91-X/Download?lang=en#infotabs).
-
-    The downloaded ZIP archive contains the following firmware:
-
-    | File or Folder                                   | Description                                                                                                                                                                                                                      |
-    |--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | `img_app_bl`                                     | Contains full application firmware images for different samples and applications. Used for programming through an external debug probe.                                                                |
-    | `img_dfu_zip`                                    | Contains Device Firmware Update (DFU) firmware images for different samples and applications. These images are meant for an over-the-air update, for example through nRF Cloud, Azure, or AWS. They are provided as ZIP archives; do not unzip them. |
-    | `img_fota_dfu_bin`, `img_fota_dfu_hex`           | Contain firmware images for Device Firmware Update (DFU). The `img_fota_dfu_hex` folder is used for programming through USB.                                                              |
-    | Modem firmware ZIP (`mfw_nrf9160_...`)           | The modem firmware is provided as a ZIP archive named `mfw_nrf91x1_` followed by the firmware version number. Do not unzip this archive.                                                     |
-    | `CONTENTS.txt`                                   | Lists the location and names of the different firmware images included in the extracted folder.                                                                                            |
-
-=== "Nordic Thingy:91"
-
-    Download the precompiled application firmware from [Nordic Thingy:91 Downloads](https://www.nordicsemi.com/Products/Development-hardware/ordic-Thingy-91/Download#infotabs).
-
-    The downloaded ZIP archive contains the following firmware:
-
-    | File or Folder                                   | escription                                                                                                                                                                                                                     |
-    |--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | `img_app_bl`                                     | Contains full application firmware images for different applications. Used for rogramming through an external debug probe.                                                                |
-    | `img_fota_dfu_bin`, `img_fota_dfu_hex`           | Contain firmware images for Device Firmware Update (DFU). The `img_fota_dfu_hex` folder s used for programming through USB.                                                              |
-    | Modem firmware ZIP (`mfw_nrf9160_...`)           | The modem firmware is provided as a ZIP archive named `mfw_nrf9160_` followed by the irmware version number. Do not unzip this archive.                                                     |
-    | `experimental`                                   | Contains firmware for the experimental connectivity bridge with CMSIS Daplink upport.    |
-    | `CONTENTS.txt`                                   | Lists the location and names of the different firmware images included in the extracted older.                                                                                            |
-
-=== "Nordic Thingy:53"
-
-    Download the precompiled application firmware from [Nordic Thingy:53 Downloads](https://www.nordicsemi.com/Products/Development-hardware/ordic-Thingy-53/Downloads?lang=en#infotabs).
-
-    The downloaded ZIP archive contains the following firmware:
-
-    | File or Folder         | Description                                                                                                 |
-    |------------------------|-------------------------------------------------------------------------------------------------------------|
-    | Application folders    | Contain the application firmware for the Thingy:53, including firmware for Device Firmware Update (DFU).     |
-    | `CONTENTS.txt`         | Lists the location and names of the different firmware images included in the extracted folder.              |
+See the `CONTENTS.txt` in the downloaded ZIP archive for the description of the firmware files and their usage.
 
 To program the Nordic Thingy prototyping platforms, you can use one of the following options:
 
@@ -67,7 +34,7 @@ To program Nordic Thingy using the USB connection, complete the following steps:
     ![Programmer - Select device](./screenshots/programmer_click_select_device.png "Programmer - Select device")
 
     A drop-down menu appears.
-1. In the menu, select the entry corresponding to your device
+1. In the menu, select the entry corresponding to your device.<br/>
 
     ![Nordic Thingy:91 X in Select device](./screenshots/programmer_select_device_thingy91x.png "Nordic Thingy:91 X in Select device")
 
@@ -76,8 +43,7 @@ To program Nordic Thingy using the USB connection, complete the following steps:
 
 1. Navigate to where you extracted the firmware.
 1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
-1. Select the file to program.
-1. Click **Open**.
+1. Select the file to program and click **Open**.
 1. In the [**Device** section](overview.md#device), click **Write**.<br/>
    Depending on the file you chose, a programming confirmation window can appear.
    For example, if you chose a HEX file, the **MCUboot DFU** window appears.
@@ -135,10 +101,8 @@ You can now disconnect the Nordic Thingy:91 X from the computer.
       1. In the [**File** section](overview.md#file), click **Add file** and select **Browse**.<br/>
          A file explorer window appears.
       1. Navigate to where you extracted the firmware.
-      1. Open the folder `img_fota_dfu_hex` that contains the HEX files for updating over USB.<br/>
-         See the `CONTENTS.txt` file for information on which file you need.
-      1. Select the `thingy91_nrf52_connectivity_bridge_*.hex` file.
-      1. Click **Open**.
+      1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
+      1. Select the HEX file to program and click **Open**.
       1. In the [**Device** section](overview.md#device), click **Write**.<br/>
          The **MCUboot DFU** window appears.
 
@@ -180,12 +144,12 @@ You can now disconnect the Nordic Thingy:91 X from the computer.
          A file explorer window appears.
 
       1. Navigate to where you extracted the firmware.
-      1. Find the modem firmware ZIP file with a name similar to `mfw_nrf9160_*.zip` and the number of the latest version.
+      1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
+      1. Select the modem firmware ZIP file to program and click **Open**.
 
         !!! note "Note"
             Do not extract the modem firmware ZIP file.
 
-      1. Select the ZIP file and click **Open**.
       1. In the [**Device** section](overview.md#device), click **Write**.<br/>
          The **Modem DFU using MCUboot** window appears.
 
@@ -228,12 +192,12 @@ You can now disconnect the Nordic Thingy:91 X from the computer.
        A file explorer window appears.
 
     1. Navigate to where you extracted the firmware.
-    1. Find the modem firmware ZIP file with a name similar to `mfw_nrf9160_*.zip` and the number of the latest version.
+    1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
+    1. Select the modem firmware ZIP file to program and click **Open**.
 
         !!! note "Note"
             Do not extract the modem firmware ZIP file.
 
-    1. Select the ZIP file and click **Open**.
     1. In the [**Device** section](overview.md#device), click **Write**.<br/>
         The **Modem DFU using MCUboot** window appears.
 
@@ -276,8 +240,9 @@ To program Nordic Thingy using the USB connection, complete the following steps:
    A file explorer window appears.
 
 1. Navigate to the folder with the application firmware.<br/>
-   If you are programming the precompiled application firmware from the [Nordic Thingy:53 Downloads](https://www.nordicsemi.com/Products/Development-hardware/Nordic-Thingy-53/Downloads?lang=en#infotabs), open the folder where you extracted the archive. For example, the ``Peripheral_LBS`` folder.
-1. Select the update file and click **Open**.<br/>
+   If you are programming the precompiled application firmware from the [Nordic Thingy:53 Downloads](https://www.nordicsemi.com/Products/Development-hardware/Nordic-Thingy-53/Downloads?lang=en#infotabs), open the folder where you extracted the archive.
+1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
+1. Select the ZIP file to program and click **Open**.<br/>
    If you are programming the precompiled application firmware, the update file mentions the nRF Connect SDK version, for example ``peripheral_lbs_<version-number>_thingy53_nrf5340.zip``.
 1. In the [**Device** section](overview.md#device), click **Write**.<br/>
    The **MCUboot DFU** window appears.
@@ -343,9 +308,9 @@ Make sure you have the following hardware:
         A file explorer window appears.
 
      1. Navigate to where you extracted the firmware.
-     1. Open the `img_app_bl` folder that contains the HEX files for flashing with a debugger.<br/>
-        See the `CONTENTS.txt` file for information on which file you need.
-     1. Select the `thingy91_nrf52_connectivity_bridge_*.hex` file and click **Open**.
+     1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.<br/>
+        The `img_app_bl` folder contains the HEX files for flashing with a debugger.
+     1. Select the HEX file to program and click **Open**.
      1. In the [**Device** section](overview.md#device), click **Erase & write**.<br/>
         The update is complete when the animation in the Programmer app's **Device memory layout** window ends.
      1. In the [**File** section](overview.md#file), click **Clear files**.
@@ -387,12 +352,12 @@ Make sure you have the following hardware:
         A file explorer window appears.
 
      1. Navigate to where you extracted the firmware.
-     1. Find the modem firmware ZIP file with a name similar to `mfw_nrf9160_*.zip` (with the latest version number) and click **Open**.
+     1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
+     1. Select the modem firmware ZIP file to program and click **Open**.
 
         !!! note "Note"
             Do not extract the modem firmware ZIP file.
 
-     1. Select the ZIP file and click **Open**.
      1. In the [**Device** section](overview.md#device), click **Write**.<br/>
          The **Modem DFU** window appears.
 
@@ -441,8 +406,9 @@ Make sure you have the following hardware:
         A file explorer window appears.
 
      1. Navigate to where you extracted the firmware.
-     1. Open the `img_app_bl` folder that contains the HEX files for updating using a debugger.
-     1. Select the `thingy91_at_client_*.hex` file and click **Open**.
+     1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.<br/>
+        The `img_app_bl` folder contains the HEX files for flashing with a debugger.
+     1. Select the HEX file to program and click **Open**.
      1. In the [**Device** section](overview.md#device), click **Erase & write**.<br/>
          The update is complete when the animation in the Programmer app's **Device memory layout** window ends.
 
@@ -484,10 +450,9 @@ To program Nordic Thingy:53 using an external debug probe, complete the followin
 
 1. In the [**File** section](overview.md#file), click **Add file** and select **Browse**.<br/>
    A file explorer window appears.
-1. Navigate to the folder with the application firmware.<br/>
-   If you are programming the precompiled application firmware from the [Nordic Thingy:53 Downloads](https://www.nordicsemi.com/Products/Development-hardware/Nordic-Thingy-53/Downloads?lang=en#infotabs), open the folder where you extracted the archive.
-1. Open the folder for the application that you want to transfer to the Nordic Thingy:53.
-1. Select the corresponding HEX file to be used with the debug probe and click **Open**.<br/>
+1. Navigate to where you extracted the firmware.
+1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
+1. Select the HEX file to program and click **Open**.<br/>
    The HEX file appears in the **File memory layout** section.
 1. In the [**Device** section](overview.md#device), click **Erase & write**.<br/>
    The update is complete when the animation in the Programmer app's **Device memory layout** window ends.
