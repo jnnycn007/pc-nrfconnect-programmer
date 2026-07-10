@@ -28,21 +28,35 @@ The following devices have specific programming requirements or procedures:
 To program a supported development kit, complete the following procedure:
 
 1. Open nRF Connect for Desktop and launch the Programmer app.
-2. Connect a development kit to the computer with a USB cable and turn it on.
-3. Click **Select device** and choose the device from the drop-down list.</br>
-   The button text changes to the name and serial number of the selected device, and the **Device Memory Layout** section indicates that the device is connected.
-4. If you have not selected the **Auto read memory** option under the **Device** menu and wish to visually see the memory layout before you program, click **Read** in the menu. If you have selected it, the memory layout will update automatically.
+1. Connect a development kit to the computer with a USB cable and turn it on.
+1. Click **Select device**.<br/>
+
+    ![Programmer - Select device](./screenshots/programmer_click_select_device.png "Programmer - Select device")
+
+    A drop-down menu appears.
+
+
+1. Choose the device from the drop-down list.</br>
+   The button text changes to the name and serial number of the selected device, and the **Device Memory Layout** section indicates that the device is connected, like in the following image for the nRF54L15 DK.<br/>
+
+    ![Programmer - Device Memory Layout indicates a connected device](./screenshots/programmer_device_memory_layout_54l15.png "Programmer - Device Memory Layout indicates a connected device")
+
+1. If you have not selected the **Auto read memory** option under the **Device** menu and wish to visually see the memory layout before you program, click **Read** in the menu. If you have selected it, the memory layout will update automatically.
 
     !!! note "Note"
          **Read** is not available for hardware that is using MCUboot.
 
-5. Drag and drop the HEX file into the **File Memory Layout** section. Alternatively, click **Add file** to add the files you want to program, using one of the following options:
+1. Drag and drop the HEX file into the **File Memory Layout** section. Alternatively, click **Add file** to add the files you want to program, using one of the following options:
 
     - Select the files you used recently.
     - If there are no recently used files, click **Browse** from the drop-down list.
 
-6. Select the firmware image file from the file browser that opens up; either a HEX file (in most cases) or a ZIP (when programming cellular modem firmware or multi-image programming with MCUboot).
-7. Depending on the device type and the programming method, use one of the following programming options in the **Device** panel:
+1. Select the firmware image file from the file browser that opens up; either a HEX file (in most cases) or a ZIP (when programming cellular modem firmware or multi-image programming with MCUboot).<br/>
+   The **File Memory Layout** section is updated for the selected file, like in the following image for the nRF54L15 DK.<br/>
+
+   ![Programmer - File Memory Layout updated for the selected firmware file](./screenshots/programmer_file_memory_layout_54l15.png "Programmer - File Memory Layout updated for the selected firmware file")
+
+1. Depending on the device type and the programming method, use one of the following programming options in the **Device** panel:
 
     - **Erase & write** for J-Link
     - **Write** for MCUboot, Nordic Secure DFU, or modem firmware
