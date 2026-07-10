@@ -34,13 +34,13 @@ To program Nordic Thingy using the USB connection, complete the following steps:
     ![Programmer - Select device](./screenshots/programmer_click_select_device.png "Programmer - Select device")
 
     A drop-down menu appears.
-1. In the menu, select the entry corresponding to your device.<br/>
+
+1. In the menu, select **Nordic Thingy:91 X**.<br/>
 
     ![Nordic Thingy:91 X in Select device](./screenshots/programmer_select_device_thingy91x.png "Nordic Thingy:91 X in Select device")
 
 1. In the [**File** section](overview.md#file), click **Add file** and select **Browse**.<br/>
    A file explorer window appears.
-
 1. Navigate to where you extracted the firmware.
 1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
 1. Select the file to program and click **Open**.
@@ -232,10 +232,7 @@ To program Nordic Thingy using the USB connection, complete the following steps:
 
     A drop-down menu appears.
 
-1. In the menu, select the entry corresponding to your device (**Bootloader Thingy:53**).<br/>
-
-    ![Bootloader Thingy:53 device in Select device](./screenshots/programmer_select_device_thingy53boot.png "Bootloader Thingy:53 device in Select device")
-
+1. In the menu, select **Nordic Thingy:53**.
 1. In the [**File** section](overview.md#file), click **Add file** and select **Browse**.<br/>
    A file explorer window appears.
 
