@@ -35,13 +35,12 @@ To program a supported development kit, complete the following procedure:
 
     A drop-down menu appears.
 
-
 1. Choose the device from the drop-down list.</br>
-   The button text changes to the name and serial number of the selected device, and the **Device Memory Layout** section indicates that the device is connected, like in the following image for the nRF54L15 DK.<br/>
+   The **Device Memory Layout** section indicates that the device is connected, like in the following image for the nRF54L15 DK.<br/>
 
     ![Programmer - Device Memory Layout indicates a connected device](./screenshots/programmer_device_memory_layout_54l15.png "Programmer - Device Memory Layout indicates a connected device")
 
-1. If you have not selected the **Auto read memory** option under the **Device** menu and wish to visually see the memory layout before you program, click **Read** in the menu. If you have selected it, the memory layout will update automatically.
+1. If you want to see the memory layout before you program, click **Read** in the menu. You can also select the **Auto read memory** option under the **Device** menu, so that the memory layout updates automatically.
 
     !!! note "Note"
          **Read** is not available for hardware that is using MCUboot.

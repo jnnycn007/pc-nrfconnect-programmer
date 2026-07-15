@@ -145,7 +145,7 @@ You can now disconnect the Nordic Thingy:91 X from the computer.
 
       1. Navigate to where you extracted the firmware.
       1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
-      1. Select the modem firmware ZIP file to program and click **Open**.
+      1. Select the modem firmware ZIP file to program (`mfw_*`) and click **Open**.
 
         !!! note "Note"
             Do not extract the modem firmware ZIP file.
@@ -193,7 +193,7 @@ You can now disconnect the Nordic Thingy:91 X from the computer.
 
     1. Navigate to where you extracted the firmware.
     1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
-    1. Select the modem firmware ZIP file to program and click **Open**.
+    1. Select the modem firmware ZIP file to program (`mfw_*`) and click **Open**.
 
         !!! note "Note"
             Do not extract the modem firmware ZIP file.
