@@ -102,7 +102,7 @@ You can now disconnect the Nordic Thingy:91 X from the computer.
          A file explorer window appears.
       1. Navigate to where you extracted the firmware.
       1. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
-      1. Select the connectivity bridge HEX file to program and click **Open**.
+      1. Select the `thingy91_nrf52_connectivity_bridge_*.hex` file to program and click **Open**.
       1. In the [**Device** section](overview.md#device), click **Write**.<br/>
          The **MCUboot DFU** window appears.
 
