@@ -342,7 +342,6 @@ Make sure you have the following hardware:
           A drop-down menu appears.
 
      1. Select the appropriate debug probe entry from the drop-down list.<br/>
-        Select the nRF9160 DK from the list.<br/>
         The button text changes to the SEGGER ID of the selected device, and the **Device memory layout** window indicates that the device is connected.
      1. Set the **SWD** selection switch **SW2** to **nRF91** on the Thingy:91.
      1. In the [**File** section](overview.md#file), click **Add file** and select **Browse**.<br/>
