@@ -9,20 +9,7 @@ You can follow this procedure to update the firmware on nRF91 Series DKs using t
 - [nRF9161 DK Downloads](https://www.nordicsemi.com/Products/Development-hardware/nRF9161-DK/Download?lang=en#infotabs)
 - [nRF9160 DK Downloads](https://www.nordicsemi.com/Products/Development-hardware/nRF9160-DK/Download#infotabs)
 
-The downloaded ZIP archive contains the following firmware:
-
-- `img_app_bl`: Contains full firmware images for different applications. The guides in this section use the image for the [AT Client](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/samples/cellular/at_client/README.html) sample as an example.
-- `img_fota_dfu_bin`, `img_fota_dfu_hex`: Contain firmware images for Device Firmware Update (DFU). These images are not used in the procedure in this page.
-- Firmware ZIP for the network component (do not unzip this file):
-
-    - `mfw_nrf91x1_...` - For the modem firmware, with name followed by the firmware version number.
-    - `mfw_nrf9151-ntn_...` - For the NTN firmware, with name followed by the firmware version number. This archive is only included in the [nRF9151 SiP NTN](https://www.nordicsemi.com/Products/Development-hardware/nRF9151-SMA-DK/Download?lang=en#A9BA541CDE7C49A1A7B28D0099AC3E24) ZIP archive.
-
-        !!! note "Note"
-             - The NTN firmware is currently only for evaluation purposes and not for production.
-             - The NTN firmware is only supported for the nRF9151 SMA DK.
-
-- `CONTENTS.txt`: Lists the location and names of the different firmware images included in the extracted folder.
+See the `CONTENTS.txt` in the downloaded ZIP archive for the description of the firmware files and their usage.
 
 To program the nRF91 Series DK, you will also need the following USB cables:
 
@@ -49,16 +36,10 @@ To update the modem firmware, application firmware, or NTN firmware, complete th
     If it is not selected and you wish to see the memory layout, click **Read** in the **DEVICE** section of the side panel.
 
 4. Click **Add file** in the **FILE** section, and select **Browse**.
-5. Navigate to where you extracted the firmware, and select the following files, depending on the firmware that you need to update:
-
-    - `mfw_nrf91x1_...` - For the modem firmware, with name followed by the firmware version number.
-    - `mfw_nrf9151-ntn_...` - For the NTN firmware, with name followed by the firmware version number.
-    - `img_app_bl` folder, select the `.hex` file for your DK for the application you are programming:
-
-        - nRF9151 DK: `nrf9151dk_at_client_<version-number>.hex`
-        - nRF9161 DK: `nrf9161dk_at_client_<version-number>.hex`
-
-6. Write the firmware to the device. Depending on the firmware type:
+5. Navigate to where you extracted the firmware.
+6. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
+7. Select the file to program and click **Open**.
+8. Write the firmware to the device. Depending on the firmware type:
 
     === "Modem and NTN firmware"
 
@@ -110,12 +91,10 @@ To update the modem or application firmware, complete the following steps:
     If it is not selected and you wish to see the memory layout, click **Read** in the **DEVICE** section of the side panel.
 
 5. Click **Add file** in the **FILE** section, and select **Browse**.
-6. Navigate to where you extracted the firmware, and select the following files, depending on the firmware that you need to update:
-
-    - `mfw_nrf91x1_...` - For the modem firmware, with name followed by the firmware version number.
-    - `img_app_bl` folder, select the `nrf9160dk_at_client_<version-number>.hex` file.
-
-7. Write the firmware to the device. Depending on the firmware type:
+6. Navigate to where you extracted the firmware.
+7. Check the `CONTENTS.txt` file in the extracted archive for information on which file you need.
+8. Select the file to program and click **Open**.
+9. Write the firmware to the device. Depending on the firmware type:
 
     === "Modem firmware"
 
