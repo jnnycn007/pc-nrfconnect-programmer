@@ -53,7 +53,7 @@ To program a supported development kit, complete the following procedure:
 1. Select the firmware image file from the file browser that opens up; either a HEX file (in most cases) or a ZIP (when programming cellular modem firmware or multi-image programming with MCUboot).<br/>
    The **File Memory Layout** section is updated for the selected file, like in the following image for the nRF54L15 DK.<br/>
 
-   ![Programmer - File Memory Layout updated for the selected firmware file](./screenshots/programmer_file_memory_layout_54l15.png "Programmer - File Memory Layout updated for the selected firmware file")
+    ![Programmer - File Memory Layout updated for the selected firmware file](./screenshots/programmer_file_memory_layout_54l15.png "Programmer - File Memory Layout updated for the selected firmware file")
 
 1. Depending on the device type and the programming method, use one of the following programming options in the **Device** panel:
 
